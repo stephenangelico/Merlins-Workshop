@@ -56,16 +56,15 @@ cd
 # Ensure we have a keypair to use
 [ -d .ssh ] || mkdir .ssh
 [ -f .ssh/id_rsa.pub ] || ssh-keygen -f .ssh/id_rsa -N '' -q
-# Try to make the mount point, if possible. (This really ought to be
-# somewhere else, but I don't want to break backward compat on the LAN.)
-[ -d /video ] || mkdir /video 2>/dev/null || { sudo mkdir /video 2>/dev/null && sudo chown $USER: /video; }
+# Try to make the mount point, if possible.
+[ -d $HOME/Videos/Merlin ] || mkdir $HOME/Videos/Merlin 2>/dev/null
 # Try to authenticate with the server, logging to .merlin_authority
 # If the authentication fails or is revoked, remove that file to re-attempt.
 [ -f .merlin_authority ] || wget %s/.merlin_authority --post-file .ssh/id_rsa.pub -q
-sshfs yosemite@%<s:/video/ /video -oStrictHostKeyChecking=no -ononempty
 cd /video
 [ \"$1\" = \"reconnect\" ] && exit 0
 python3 Yosemite.py
+sshfs merlin@%<s:/mnt/video1/Videos $HOME/Videos/Merlin -oStrictHostKeyChecking=no && echo 'Merlin Video Library mounted. Press Ctrl-C to unmount and exit.'
 ", req->request_headers->host || "Merlin")])); break;
 		//Accept client public key for authentication.
 		case "/.merlin_authority": if (req->body_raw!="")
