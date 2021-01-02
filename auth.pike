@@ -61,10 +61,21 @@ cd
 # Try to authenticate with the server, logging to .merlin_authority
 # If the authentication fails or is revoked, remove that file to re-attempt.
 [ -f .merlin_authority ] || wget %s/.merlin_authority --post-file .ssh/id_rsa.pub -q
-cd /video
-[ \"$1\" = \"reconnect\" ] && exit 0
-python3 Yosemite.py
+# Higitus figitus migitus mum! Prestidigitonium!
+# This is the line that actually mounts the share.
 sshfs merlin@%<s:/mnt/video1/Videos $HOME/Videos/Merlin -oStrictHostKeyChecking=no && echo 'Merlin Video Library mounted. Press Ctrl-C to unmount and exit.'
+# Alakazam!
+# Holds the console open until closed by the user.
+# This may not be entirely necessary as sshfs has a magic state when running
+# in the background inside a script - when the script finally exits, sshfs
+# also terminates and unmounts the share. This is an undocumented feature on
+# huix, where running the equivalent of this script also invokes the web
+# remote control interface which is now deprecated. If this works, I do not know
+# why, but DO NOT TOUCH it.
+trap 'fusermount -u $HOME/Videos/Merlin' EXIT
+while true; do
+    sleep 10
+done
 ", req->request_headers->host || "Merlin")])); break;
 		//Accept client public key for authentication.
 		case "/.merlin_authority": if (req->body_raw!="")
