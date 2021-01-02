@@ -46,10 +46,6 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target
 \" >/etc/systemd/system/merlin.service
-	# Note that some of this will fail if systemd is installed
-	# but isn't the default init system. In that case, well, you
-	# can't use this method of autostarting. TODO: Provide some
-	# other ways to autostart (eg for Upstart and/or sysvinit).
 	systemctl --system daemon-reload
 	systemctl enable merlin.service
 	echo Installed as merlin.service.
