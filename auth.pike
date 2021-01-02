@@ -72,6 +72,12 @@ python3 Yosemite.py
 		{
 			//TODO: Check for duplicates (maybe by ignoring the key and
 			//just replacing anything with the same "user@host" tail).
+			//Currently the default client script only sends a public
+			//key if it doesn't have a .merlin_authority file. Most
+			//users will likely leave the file, but if it is deleted,
+			//such as with a reinstall, and the old keypair is retained,
+			//there may be duplicate entries in the server
+			//authorized_keys file, but it doesn't hurt that much.
 			Stdio.append_file("/home/merlin/.ssh/authorized_keys",String.trim_all_whites(req->body_raw)+"\n");
 			req->response_and_finish((["data":"Authenticated at "+ctime(time())]));
 			break;
