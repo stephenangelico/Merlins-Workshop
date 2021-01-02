@@ -64,15 +64,15 @@ cd
 # Higitus figitus migitus mum! Prestidigitonium!
 # This is the line that actually mounts the share.
 sshfs merlin@%<s:/mnt/video1/Videos $HOME/Videos/Merlin -oStrictHostKeyChecking=no && echo 'Merlin Video Library mounted. Press Ctrl-C to unmount and exit.'
-# Alakazam!
 # Holds the console open until closed by the user.
-# This may not be entirely necessary as sshfs has a magic state when running
+# Note that there is no unmount command as sshfs has a magic state when running
 # in the background inside a script - when the script finally exits, sshfs
 # also terminates and unmounts the share. This is an undocumented feature on
 # huix, where running the equivalent of this script also invokes the web
-# remote control interface which is now deprecated. If this works, I do not know
-# why, but DO NOT TOUCH it.
-trap 'fusermount -u $HOME/Videos/Merlin' EXIT
+# remote control interface which is now deprecated. I do not know why this
+# works, but DO NOT TOUCH it.
+# To manually unmount: `fusermount -u $HOME/Videos/Merlin`
+trap '' EXIT # Alakazam!
 while true; do
     sleep 10
 done
