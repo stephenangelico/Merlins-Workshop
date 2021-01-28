@@ -1,10 +1,33 @@
 Simple SSHFS wrapper for movie/disk server
+
 Use ONLY on LAN, and be sure you trust those on your LAN.
+Requires Pike 7.8 or greater.
+
+If you want to have a Linux NAS for music, movies or any Write Once Read Many
+collection, and you want to access it with your normal file manager, then SSHFS
+could be the tool for you! But suppose you want grant read-only access to your
+family or housemates, and you don't want them to have to enter a password each
+time... the configuration can be a little involved. This project gives a few
+helpers, but most importantly, this guide should walk you through everything.
+
+Setup:
+======
+
 TODO: Flesh out instructions and explanations
+
+You will need two user accounts on the server - one with read/write access, to
+add new content, and one with read-only access that most people will use.
+These instructions assume a functional Linux system with Pike installed.
 
 - Create new account 'merlin' (or your choice), create .ssh/authorized_keys,
   clean out everything else in ~ and mark it all read-only except authorized_keys
+- Put content in folder NOT owned by merlin, as only child of root-owned directory
+- If mount point is to be on non-boot drive, add it to /etc/fstab
 - Ensure that account has read-only access to mount point
+- Test at this point - run auth.pike as root, download script on client and run
+- Lock password: sudo usermod -U merlin
+- Set shell to a not-shell: sudo usermod -s /bin/true merlin
+- Adjust merlin.conf as necessary and copy to /etc/ssh/sshd_config.d/
 
 Made available under the MIT license.
 
