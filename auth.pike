@@ -10,15 +10,8 @@ $ wget Merlin/merlin_client
 $ chmod +x merlin_client
 $ ./merlin_client
 
-TODO: Make this more generic. It's currently specific to my own LAN.
-
 To install client under systemd:
 $ sudo ./merlin_client install
-
-Setup:
-* Create new account, create .ssh/authorized_keys, clean out everything else in ~ and mark it all read-only except authorized_keys itself
-* Ensure that account has read-only access to /video
-
 */
 
 void request(Protocols.HTTP.Server.Request req)

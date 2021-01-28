@@ -2,6 +2,9 @@ Simple SSHFS wrapper for movie/disk server
 Use ONLY on LAN, and be sure you trust those on your LAN.
 
 TODO: everything, and documentation
+- Create new account 'merlin' (or your choice), create .ssh/authorized_keys,
+  clean out everything else in ~ and mark it all read-only except authorized_keys
+- Ensure that account has read-only access to mount point
 
 Made available under the MIT license.
 
