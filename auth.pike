@@ -63,7 +63,7 @@ cd
 [ -f .merlin_authority ] || wget %s/.merlin_authority --post-file .ssh/id_rsa.pub -q
 # Higitus figitus migitus mum! Prestidigitonium!
 # This is the line that actually mounts the share.
-sshfs merlin@%<s:/mnt/video1/Videos $HOME/Videos/Merlin -oStrictHostKeyChecking=no && echo 'Merlin Video Library mounted. Press Ctrl-C to unmount and exit.'
+sshfs merlin@%<s:/Videos $HOME/Videos/Merlin -oStrictHostKeyChecking=no && echo 'Merlin Video Library mounted. Press Ctrl-C to unmount and exit.'
 # Holds the console open until closed by the user.
 # Note that there is no unmount command as sshfs has a magic state when running
 # in the background inside a script - when the script finally exits, sshfs
