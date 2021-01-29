@@ -1,8 +1,5 @@
 Simple SSHFS wrapper for movie/disk server
 
-Use ONLY on LAN, and be sure you trust those on your LAN.
-Requires Pike 7.8 or greater.
-
 If you want to have a Linux NAS for music, movies or any Write Once Read Many
 collection, and you want to access it with your normal file manager, then SSHFS
 could be the tool for you! But suppose you want grant read-only access to your
@@ -10,13 +7,17 @@ family or housemates, and you don't want them to have to enter a password each
 time... the configuration can be a little involved. This project gives a few
 helpers, but most importantly, this guide should walk you through everything.
 
+Use ONLY on LAN, and be sure you trust those on your LAN.
+
+Requires [Pike 7.8][1] or greater.
+
 Setup:
 ======
 
 
 You will need two user accounts on the server - one with read/write access, to
 add new content, and one with read-only access that most people will use.
-These instructions assume a functional Linux system with Pike installed.
+These instructions assume a functional Linux system with [Pike][1] installed.
 
 These instructions will set up the mount point, user accounts, authentication
 keys and automatic reception of keys, as well as strict access control for the
@@ -164,3 +165,4 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
 SOFTWARE.
 
+[1]: https://pike.lysator.liu.se/download/ "Download Pike"
