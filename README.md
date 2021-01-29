@@ -22,45 +22,45 @@ These instructions assume a functional Linux system with Pike installed.
 - If mount point is not to be on the boot drive, format the drive (if it's not
   already formatted) with whatever tool you choose (good GUI tools include GNOME
   Disks and GParted), and add the drive to `/etc/fstab`:
-  
+
   ```
   sudo -e /etc/fstab
   ```
-  
+
   Adjust the following line according to your hardware before appending:
-  
+
   ```
   UUID=2e1da9dc-b8ec-4fa2-9d56-424f798c7628	/mnt/video1	ext4	rw,relatime	0	2
   ```
-  
+
   Replace the UUID with the one from your drive - either copy it from the tool
   you used to create it, or use `sudo blkid` to find it from a list.
   Replace the path with wherever you want the drive to be mounted.
   If you formatted the drive as something other than ext4, replace `ext4` with
   the format you chose.
-  
+
 - Create drive mount point:
-  
+
   ```
   sudo mkdir /mnt/video1
   ```
-  
+
 - Mount drive (if applicable):
 
   ```
   sudo mount /mnt/video1
   ```
-  
+
 - Create content folder, owned by primary user:
-  
+
   ```
   sudo mkdir /mnt/video1/Videos
   sudo chown 1000: /mnt/video1/Videos
   chmod -R 755 /mnt/video1/Videos
   ```
-  
+
 - Start copying content at your leisure.
-  
+
 - Create new read-only account:
 
   ```
@@ -73,6 +73,7 @@ These instructions assume a functional Linux system with Pike installed.
   ```
   touch ~/.ssh/authorized_keys
   ```
+
 
 - Test at this point - run `auth.pike` as root, download script on client and run
 - Lock password: `sudo usermod -U merlin`
