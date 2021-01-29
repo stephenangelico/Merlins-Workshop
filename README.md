@@ -45,7 +45,7 @@ Made available under the MIT license.
 
 Copyright (c) 2020, Stephen Angelico
 
-auth.pike forked from Rosuav/Yosemite, Copyright (c) 2011-2013, Chris Angelico
+`auth.pike` forked from Rosuav/Yosemite, Copyright (c) 2011-2013, Chris Angelico
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of 
 this software and associated documentation files (the "Software"), to deal in 
