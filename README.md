@@ -20,18 +20,22 @@ add new content, and one with read-only access that most people will use.
 These instructions assume a functional Linux system with Pike installed.
 
 - Create new account 'merlin' (or your choice):
+
   `sudo adduser merlin # Set a password but no other fields matter`
+  `su merlin`
+
 - Create .ssh/authorized_keys for the new user:
-  `su merlin # If you didn't already switch user
+
   `touch ~/.ssh/authorized_keys`
-  Clean out everything else in ~merlin and mark it all read-only except authorized_keys
+
+- Clean out everything else in `~merlin` and mark it all read-only except `authorized_keys`
 - Put content in folder owned by primary user, as only child of root-owned directory
-- If mount point is to be on non-boot drive, add it to /etc/fstab
+- If mount point is to be on non-boot drive, add it to `/etc/fstab`
 - Ensure that account has read-only access to mount point
-- Test at this point - run auth.pike as root, download script on client and run
-- Lock password: sudo usermod -U merlin
-- Set shell to a not-shell: sudo usermod -s /bin/true merlin
-- Adjust merlin.conf as necessary and copy to /etc/ssh/sshd_config.d/
+- Test at this point - run `auth.pike` as root, download script on client and run
+- Lock password: `sudo usermod -U merlin`
+- Set shell to a not-shell: `sudo usermod -s /bin/true merlin`
+- Adjust `merlin.conf` as necessary and copy to `/etc/ssh/sshd_config.d/`
 
 Made available under the MIT license.
 
