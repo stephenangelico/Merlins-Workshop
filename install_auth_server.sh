@@ -7,7 +7,6 @@ After=network.target
 
 [Service]
 Type=simple
-User=$SUDO_USER
 WorkingDirectory=`pwd`
 ExecStart=/usr/bin/env pike `pwd`/auth.pike
 Restart=always
