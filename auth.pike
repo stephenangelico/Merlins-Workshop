@@ -1,5 +1,6 @@
 /*
-Authorization manager for Merlin
+Authorization manager for Merlin, also known as Archimedes
+"Who? Who?"
 Forked from Rosuav/Yosemite
 
 Run this (as root) to accept keys for sshfs. Once this is running, anyone with
