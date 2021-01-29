@@ -13,11 +13,21 @@ helpers, but most importantly, this guide should walk you through everything.
 Setup:
 ======
 
-TODO: Flesh out instructions and explanations
 
 You will need two user accounts on the server - one with read/write access, to
 add new content, and one with read-only access that most people will use.
 These instructions assume a functional Linux system with Pike installed.
+
+These instructions will set up the mount point, user accounts, authentication
+keys and automatic reception of keys, as well as strict access control for the
+read-only user.
+
+- Clone this repository and enter the directory:
+
+  ```
+  git clone https://github.com/stephenangelico/Merlins-Workshop.git
+  cd Merlins-Workshop
+  ```
 
 - If mount point is not to be on the boot drive, format the drive (if it's not
   already formatted) with whatever tool you choose (good GUI tools include GNOME
