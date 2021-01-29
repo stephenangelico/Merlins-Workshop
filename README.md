@@ -74,11 +74,61 @@ These instructions assume a functional Linux system with Pike installed.
   touch ~/.ssh/authorized_keys
   ```
 
+- Close session as read-only user by either typing `exit` or pressing `Ctrl-D`.
 
-- Test at this point - run `auth.pike` as root, download script on client and run
-- Lock password: `sudo usermod -U merlin`
-- Set shell to a not-shell: `sudo usermod -s /bin/true merlin`
-- Adjust `merlin.conf` as necessary and copy to `/etc/ssh/sshd_config.d/`
+- Check SSH config:
+
+  - Ensure that this line is in `/etc/ssh/sshd_config`:
+
+    ```
+    Include /etc/ssh/sshd_config.d/*.conf
+    ```
+
+  - Adjust `merlin.conf` as necessary and copy to `/etc/ssh/sshd_config.d/`:
+
+    ```
+    sudo cp merlin.conf /etc/ssh/sshd_config.d/
+    ```
+
+  - Restart SSH daemon service:
+
+    ```
+    sudo systemctl restart sshd.service
+    ```
+
+- Lock password for read-only user:
+
+  ```
+  sudo usermod -U merlin
+  ```
+
+- Set read-only user's shell to a not-shell:
+
+  ```
+  sudo usermod -s /bin/true merlin
+  ```
+
+- Install `auth.pike` as SystemD service:
+
+  ```
+  sudo ./install_auth_server.sh
+  ```
+
+- To test that everything works, run these on the client:
+
+  ```
+  wget wget Merlin/merlin_client
+  chmod +x merlin_client
+  ./merlin_client
+  ```
+
+  If you get a message that the library is mounted, it worked! Check to see if
+  there's anything in `/home/[user]/Videos/Merlin` - if you see what you loaded
+  onto the share, you're done!
+
+
+Licence
+=======
 
 Made available under the MIT license.
 
