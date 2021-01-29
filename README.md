@@ -21,16 +21,16 @@ These instructions assume a functional Linux system with Pike installed.
 
 - Create new account 'merlin' (or your choice):
 
-```
-sudo adduser merlin # Set a password but no other fields matter
-su merlin
-```
+  ```
+  sudo adduser merlin # Set a password but no other fields matter
+  su merlin
+  ```
 
 - Create .ssh/authorized_keys for the new user:
 
-```
-touch ~/.ssh/authorized_keys
-```
+  ```
+  touch ~/.ssh/authorized_keys
+  ```
 
 - Clean out everything else in `~merlin` and mark it all read-only except `authorized_keys`
 - Put content in folder owned by primary user, as only child of root-owned directory
